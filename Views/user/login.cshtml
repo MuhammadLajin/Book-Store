@@ -1,0 +1,58 @@
+﻿@model Day4BookStore.Models.User
+@{
+    ViewBag.Title = "login Page";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+<form class="login100-form validate-form" method="post">
+    <span class="login100-form-title">
+        Member Login
+    </span>
+
+    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+    @Html.TextBoxFor(n => n.user_email, new { @class = "input100" })
+    @Html.ValidationMessageFor(n => n.user_email, "", new { @class = "text-danger" })
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+    </span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Password is required">
+        @Html.PasswordFor(n => n.user_password, new { @class = "input100" })
+        @Html.ValidationMessageFor(n => n.user_password, "", new { @class = "text-danger" })
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+        </span>
+    </div>
+
+        <div class="container-login100-form-btn">
+            <input type="submit" class="login100-form-btn" value="Login" />
+        </div>
+
+        <div class="text-center p-t-12">
+            <span class="txt1">
+                Forgot
+            </span>
+            <a class="txt2" href="user/changePass">
+                Username / Password?
+            </a>
+        </div>
+        <div class="text-center p-t-12">
+            <input type="checkbox" name="remeberme" value="true" />remeber me
+        </div>
+
+        <div class="text-center p-t-136">
+            <a class="txt2" href="user/CreateUser">
+                Create your Account
+                <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+        </div>
+        @if (ViewBag.status != null)
+        {
+            <p class="text-danger">@ViewBag.status</p>
+        }
+
+</form>

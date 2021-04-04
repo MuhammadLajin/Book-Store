@@ -1,0 +1,38 @@
+﻿@model List<Day4BookStore.Models.User>
+    @{
+        ViewBag.Title = "User";
+        Layout = "~/Views/Shared/_layout.cshtml";
+    }
+    <h4 class="page-title">user Table</h4>
+    <br />
+    <table class="table">
+        <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>email</th>
+            <th>photo</th>
+            <th>books</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.user_name</td>
+        <td>@item.user_age</td>
+        <td>@item.user_email</td>
+        <td>@item.user_photo</td>
+        <td>
+            @foreach (Day4BookStore.Models.Book it in ViewBag.books)
+            {
+                if (it.user_id == item.user_id)
+                {
+                    <option value="@it.book_id">@it.book_title</option>
+                }
+            }
+        </td>
+        <td>@Html.ActionLink("Edit", "edit", new { id = @item.user_id }, new { @class = "btn btn-info" })</td>
+
+    </tr>
+        }
+
+    </table>

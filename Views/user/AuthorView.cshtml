@@ -1,0 +1,32 @@
+﻿@model List<Day4BookStore.Models.Author>
+@{
+    ViewBag.Title = "AuthorView";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h4 class="page-title">Author Table</h4>
+<br />
+<table class="table">
+    <tr>
+        <th>name</th>
+        <th>books</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.auth_name</td>
+            <td>
+                @foreach (Day4BookStore.Models.Book it in ViewBag.books)
+                {
+                    if (it.auth_id == item.auth_id)
+                    {
+                        <option value="@it.book_id">@it.book_title</option>
+                    }
+                }
+            </td>
+
+        </tr>
+    }
+
+</table>

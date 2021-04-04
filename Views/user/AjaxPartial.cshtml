@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "AjaxPartial";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h4 class="page-title">Catalogue Table</h4>
+<br />
+
+@Html.DropDownList("authid", (SelectList)ViewBag.authors, "Choose", new { @class = "form-control" })
+
+
+<div id="d1">
+
+</div>
+
+@section scripts{
+    <script>
+        $("#authid").on("change", function () {
+            let id = $("#authid").val();
+            console.log(id);
+            $("#d1").load("/user/bookAuthor/" + id);
+
+        })
+    </script>
+
+}
+
+
+
+
+

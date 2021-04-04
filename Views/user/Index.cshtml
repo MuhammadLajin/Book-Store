@@ -1,0 +1,24 @@
+﻿@model List<Day4BookStore.Models.Catalog>
+@{
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h4 class="page-title">Catalogue Table</h4>
+<br />
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.cat_id</td>
+            <td>@item.cat_name</td>
+            <td>@item.cat_desc</td>
+        </tr>
+    }
+
+</table>

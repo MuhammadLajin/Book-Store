@@ -1,0 +1,40 @@
+﻿@model Day4BookStore.Models.User
+@{
+    ViewBag.Title = "edit";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>User edit</h2>
+<h4 class="page-title">Edit User</h4>
+
+<form method="post">
+    <div class="form-group">
+        @Html.HiddenFor(n => n.user_id)
+
+        @Html.LabelFor(n => n.user_name)
+        @Html.TextBoxFor(n => n.user_name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.user_name, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.user_email)
+        @Html.TextBoxFor(n => n.user_email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.user_email, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.user_age)
+        @Html.TextBoxFor(n => n.user_age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.user_age, "", new { @class = "text-danger" })
+    </div>
+    @*<div class="form-group">
+        @foreach (var it in ViewBag.books)
+        {
+            <option value="@it.book_id">@it.book_title</option>
+        }
+    </div>*@
+    <input type="submit" value="save" />
+
+</form>
+
+
+
+

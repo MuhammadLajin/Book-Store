@@ -1,0 +1,29 @@
+﻿@model Day4BookStore.Models.User
+@{
+    ViewBag.Title = "profile";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h4 class="page-title">profile</h4>
+<br />
+
+@*<div>
+    <h1 class="page-item"> @Model.user_name</h1>
+    <h1 class="page-item"> @Model.user_age</h1>
+
+</div>*@
+
+<table class="table">
+    <tr>
+        <th>name</th>
+        <th>email</th>
+    </tr>
+
+    <tr>
+        <td>@Model.user_name</ td >
+        <td>@Model.user_email</td>
+    </tr>
+
+
+</table>
+

@@ -1,0 +1,29 @@
+﻿@model Day4BookStore.Models.User
+@{
+    ViewBag.Title = "changePass";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h4 class="page-title">Catalogue Table</h4>
+
+<form method="post" class="col-md-6">
+    <table class="table">
+        <tr>
+            <th>Change Password</th>
+        </tr>
+
+        <tr>
+            <td><span>Enter Email       :</span> @Html.TextBoxFor(n => n.user_email, new { @class = "input100" }) </td>
+        </tr>
+        <tr>
+            <td><span>Enter Old Password:</span> @Html.TextBoxFor(n => n.user_email, new { @class = "input100" }) </td>
+        </tr>
+        <tr>
+            <td><span>Enter New Password:</span><input type="password" name="newPass" placeholder="Enter New Password" </td>
+        </tr>
+
+    </table>
+
+    <input type="submit" value="Save" />
+</form>
+

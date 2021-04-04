@@ -1,0 +1,44 @@
+﻿@model List<Day4BookStore.Models.Book>
+@{
+    ViewBag.Title = "BookView";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h4 class="page-title">Book Table</h4>
+<br />
+<table class="table">
+    <tr>
+        <th>title</th>
+        <th>breif</th>
+        <th>description</th>
+        <th>pdf</th>
+        <th>catlog</th>
+        <th>author</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.book_title</td>
+            <td>@item.book_bref</td>
+            <td>@item.book_desc</td>
+            <td>@item.book_pdf</td>
+            @foreach (Day4BookStore.Models.Catalog it in ViewBag.cata)
+            {
+                if (it.cat_id == item.cat_id)
+                {
+                    <td>@it.cat_name</td>
+                }
+            }
+            @foreach (Day4BookStore.Models.Author it in ViewBag.auth)
+            {
+                if (it.auth_id == item.auth_id)
+                {
+                    <td>@it.auth_name</td>
+                }
+            }
+        </tr>
+    }
+
+</table>
+

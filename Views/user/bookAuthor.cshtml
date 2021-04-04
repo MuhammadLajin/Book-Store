@@ -1,0 +1,28 @@
+﻿@model List<Day4BookStore.Models.Book>
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>title</th>
+            <th>breif</th>
+            <th>desc</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.book_id</td>
+                <td>@item.book_title</td>
+                <td>@item.book_bref</td>
+                <td>@item.book_desc</td>
+
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p> no news to show</p>
+}
